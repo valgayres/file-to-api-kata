@@ -1,5 +1,3 @@
-require './movies'
-
 class Router
   def initialize(appl)
     @appl = appl
@@ -10,8 +8,8 @@ class Router
     req = Rack::Request.new(env)
 
     case req.path_info
-      when /movies/
-        return Movie.new(req.path_info).render
+      when /\A\/movies\/?/
+        return MoviesController.new({method: req.request_method, path: req.path_info.gsub(/\A\/movies\/?/, '')}).render
     end
 
     [status, headers, body]

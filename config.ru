@@ -1,3 +1,4 @@
+require './initializer'
 require './my_app'
 require './router'
 use Rack::Reloader
