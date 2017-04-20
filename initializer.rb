@@ -1,5 +1,5 @@
 # Load all necessary folders
-require './controllers/my_application_controller'
+require './controllers/application_controller'
 require 'json'
 Dir['./controllers/*.rb'].each{ |f| require f }
 Dir['./models/*.rb'].each{ |f| require f }

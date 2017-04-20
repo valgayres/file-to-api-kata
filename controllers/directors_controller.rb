@@ -1,4 +1,4 @@
-class DirectorsController < MyApplicationController
+class DirectorsController < ApplicationController
   def index
     {body: Director.all.to_s}
   end

@@ -1,4 +1,4 @@
-class MyApplicationController
+class ApplicationController
   attr_reader :path, :method
 
   def initialize(path:, method:)
@@ -29,27 +29,8 @@ class MyApplicationController
     [resp[:status] || 200, {"Content-Type" => (resp[:content_type] || "text/html")}, [resp[:body] || '']]
   end
 
-  def index
-    {}
+  [:index, :new, :create, :update, :delete, :show].each do |method|
+    define_method(method) { {} }
   end
 
-  def new
-    {}
-  end
-
-  def create
-    {}
-  end
-
-  def update
-    {}
-  end
-
-  def delete
-    {}
-  end
-
-  def show
-    {}
-  end
 end
